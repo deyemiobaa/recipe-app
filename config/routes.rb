@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root 'foods#index', as: :authenticated_root
   end
 
+  
   root to: 'devise/registrations#new'
 
   resources :users
