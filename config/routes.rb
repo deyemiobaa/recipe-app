@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'foods#index'
+
+  authenticated :user do
+    root 'foods#index', as: :authenticated_root
+  end
+
+  root to: 'sessions#new'
 
   resources :users
   resources :foods, only: [:index, :new, :create, :destroy]
