@@ -1,0 +1,38 @@
+<div class="flex justify-center foods">
+  <table class="w-4/5 overflow-auto border-separate table-auto text-slate-500">
+    <thead>
+      <tr>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Food
+        </th>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Quantity
+        </th>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Value
+        </th>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ingredients.each do |ingredient| %>
+        <tr>
+          <td class="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
+            <%= ingredient.name %>
+          </td>
+          <td class="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
+            <%= ingredient.quantity %>
+          </td>
+          <td class="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
+            $ <%= ingredient.price * ingredient.quantity %>
+          </td>
+          <td class="px-3 py-4 text-sm font-normal text-left text-red-600 underline break-words bg-light">
+            <%= button_to "Remove", recipe_recipe_food_path(recipe, ingredient.ingredient_id), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

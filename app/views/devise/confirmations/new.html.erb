@@ -1,0 +1,16 @@
+<h2 class="w-full mb-10 text-lg font-bold text-center text-body-dark">Resend confirmation instructions</h2>
+<div class="flex justify-center">
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="mb-4 field">
+    <%= f.label :email, class: "block text-body-dark font-semibold text-base leading-none mb-3" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "px-4 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-base focus:outline-none focus:ring-0 border border-border-base focus:border-accent h-10" %>
+  </div>
+
+  <div class="flex items-center h-12 p-5 font-semibold leading-none transition duration-300 ease-in-out border border-transparent rounded outline-none actions max-w-fit focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light hover:bg-accentH">
+    <%= f.submit "Resend confirmation instructions" %>
+  </div>
+<% end %>
+</div>
+<%= render "devise/shared/links" %>

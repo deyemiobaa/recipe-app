@@ -1,0 +1,44 @@
+<h1 class="w-full mb-10 text-lg font-bold text-center text-body-dark">Foods</h1>
+
+<div class="flex justify-center foods">
+  <table class="w-4/5 overflow-auto border-separate table-auto text-slate-500">
+    <thead>
+      <tr>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Food
+        </th>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Measurement Unit
+        </th>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Price
+        </th>
+        <th class="p-3 text-sm font-semibold text-left bg-thead whitespace-nowrap text-textHeading">
+          Actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td class="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
+            <%= food.name %>
+          </td>
+          <td class="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
+            <%= food.measurement_unit %>
+          </td>
+          <td class="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor">
+            $ <%= food.price %>
+          </td>
+          <td class="px-3 py-4 text-sm font-normal text-left text-red-600 underline break-words bg-light">
+            <%= button_to "Delete", food_path(food), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="flex items-center p-4 mt-20 ml-10 font-semibold leading-none transition duration-300 ease-in-out border border-transparent rounded outline-none max-w-fit focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light hover:bg-accentH">
+  <%= link_to "New food", new_food_path %>
+</div>

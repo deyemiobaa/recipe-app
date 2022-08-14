@@ -1,0 +1,23 @@
+<h1 class="w-full mb-10 text-lg font-bold text-center text-body-dark">Public Recipes</h1>
+
+<div id="recipes" class="flex flex-col items-center px-8">
+<% if @recipes.empty? %>
+<h1 class="w-full mb-10 text-lg font-bold text-center text-body-dark">Sorry, there are no public recipes at the moment. Check back later.</h1>
+<% end %>
+<div>
+  <% @recipes.each do |recipe| %>
+    <div class="border-green-800">
+    <div class="font-semibold text-l"><%= link_to (recipe.name), recipe_path(recipe)%></div>
+    <% if can? :manage, recipe %>
+    <div class="py-4 text-red-600 text-l"><%= button_to "REMOVE", recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" } %></div>
+    <% end %>
+    </div>
+    <div>
+      <p class="px-3 py-4 text-sm font-normal text-left break-words bg-light text-textColor"><%= recipe.description %></p>
+    </div>
+    <div class="border"></div>
+    <br />
+    <br />
+  <% end %>
+  </div>
+</div>

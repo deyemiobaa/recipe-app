@@ -1,0 +1,34 @@
+<h2 class="w-full mb-10 text-lg font-bold text-center text-body-dark">Sign up</h2>
+<div class="flex justify-center">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="mb-4 field">
+    <%= f.label :name, class: "block text-body-dark font-semibold text-base leading-none mb-3" %>
+    <%= f.text_field :name, autofocus: true, class: "px-4 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-base focus:outline-none focus:ring-0 border border-border-base focus:border-accent h-10" %>
+  </div>
+
+  <div class="mb-4 field">
+    <%= f.label :email, class: "block text-body-dark font-semibold text-base leading-none mb-3" %>
+    <%= f.email_field :email, autocomplete: "email", class: "px-4 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-base focus:outline-none focus:ring-0 border border-border-base focus:border-accent h-10" %>
+  </div>
+
+  <div class="mb-4 field">
+    <%= f.label :password, class: "block text-body-dark font-semibold text-base leading-none mb-3" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "px-4 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-base focus:outline-none focus:ring-0 border border-border-base focus:border-accent h-10" %>
+  </div>
+
+  <div class="mb-4 field">
+    <%= f.label :password_confirmation, class: "block text-body-dark font-semibold text-base leading-none mb-3" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "px-4 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-base focus:outline-none focus:ring-0 border border-border-base focus:border-accent h-10" %>
+  </div>
+
+  <div>
+    <%= f.submit "Sign up", class: "py-2 px-3 font-semibold leading-none transition duration-300 ease-in-out border border-transparent rounded outline-none actions max-w-fit focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light hover:bg-accentH" %>
+  </div>
+<% end %>
+</div>
+<%= render "devise/shared/links" %>

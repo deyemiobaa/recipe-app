@@ -1,0 +1,19 @@
+<%= render @recipe %>
+<br />
+
+  <div class= "flex flex-row justify-between mt-4 mb-4 ml-16 mr-16 hover:flex-row">
+  <div class="flex p-4 font-semibold leading-none transition duration-300 ease-in-out border border-transparent rounded outline-none max-w-fit focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light hover:bg-accentH">
+    <%= link_to "Generate shopping List", shopping_list_path %>
+  </div>
+  <div class="flex p-4 font-semibold leading-none transition duration-300 ease-in-out border border-transparent rounded outline-none max-w-fit focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light hover:bg-accentH">
+    <%= link_to "Add Ingredient", recipe_ingredients_path(@recipe) %>
+  </div>
+  </div>
+
+  <div class="border"></div>
+  <%= render 'ingredients', ingredients: @ingredients, recipe: @recipe %>
+  <div class="p-5 mt-20 font-semibold leading-none underline max-w-fit">
+    <%= link_to "Back to recipes", recipes_path %>
+   </div>
+
+</div>

@@ -1,0 +1,10 @@
+/* stylelint-disable */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input#toggleFour:checked~.box {
+  background: rgb(60 167 69/var(--tw-bg-opacity));
+}

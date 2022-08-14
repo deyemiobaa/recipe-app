@@ -1,0 +1,8 @@
+<h1 class="w-full mb-10 text-lg font-bold text-center text-body-dark">Add a new ingredient</h1>
+
+<%= render "form", recipe_food: @recipe_food, recipe: @recipe, foods: @foods %>
+
+
+<div class="p-5 mt-20 font-semibold leading-none underline max-w-fit">
+  <%= link_to "Go back", recipe_path(@recipe) %>
+</div>

@@ -1,0 +1,41 @@
+<div id="<%= dom_id recipe %>">
+  <p class="w-full mb-10 text-lg font-bold text-center text-body-dark">
+    <%= recipe.name %>
+  </p>
+  <div class= "flex flex-row justify-between gap-8 m-16">
+    <div class= "max-w-md">
+    <p>
+      <strong>Preparation time:</strong>
+      <%= recipe.preparation_time %>
+    </p>
+    <br />
+    <p>
+      <strong>Cooking time:</strong>
+      <%= recipe.cooking_time %>
+    </p>
+    <br />
+    <p>
+      <strong>Description:</strong>
+      <%= recipe.description %>
+    </p>
+    </div>
+    <% recipe.public do |c| %>
+  <%= check_box_tag "toggleFour", c.id, false, :id => "recipe_ids_#{c.id}" %>
+<% end %>
+<%= form_with(model: recipe, class: "w-2/5 h-full flex flex-col justify-between") do |form| %>
+    <div>
+    <label><%= form.label :public, for: "toggleFour", style: "display: block", class: "font-semibold flex items-center cursor-pointer select-none" %>
+      <div class="relative">
+        <%= form.check_box :public, type: "checkbox", id: "toggleFour", class: "sr-only"%>
+        <div class="block h-8 rounded-full bg-primary box w-14"></div>
+        <div id: "toggleFour" class="absolute flex items-center justify-center w-6 h-6 transition bg-white rounded-full cursor-pointer dot left-1 top-1"></div>
+      </div>
+    </label>
+    <span><i>Check if you want your recipe public</span>
+    </div>
+    <div class="flex items-center h-12 p-5 font-semibold leading-none transition duration-300 ease-in-out border border-transparent rounded outline-none max-w-fit focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light hover:bg-accentH">
+    <%= form.submit "Update Public" %>
+    </div>
+<% end %>
+  </div>
+</div>

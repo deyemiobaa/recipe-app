@@ -1,0 +1,18 @@
+<div class="flex justify-center h-3/5">
+  <%= form_with(model: recipe_food, url: recipe_recipe_foods_path(recipe), class: "w-2/5 h-3/4 flex flex-col justify-between") do |form| %>
+  
+    <div>
+      <%= form.label :quantity, style: "display: block", class: "block text-body-dark font-semibold text-base leading-none mb-3" %>
+      <%= form.number_field :quantity, class: "px-4 flex items-center w-full rounded appearance-none transition duration-300 ease-in-out text-heading text-base focus:outline-none focus:ring-0 border border-border-base focus:border-accent h-10" %>
+    </div>
+
+    <div>
+      <%= form.label :food, style: "display: block", class: "block text-body-dark font-semibold text-base leading-none mb-3" %>
+      <%= form.collection_select :food_id, foods, :id, :name, {}, {class: "px-4 flex items-center w-full rounded transition duration-300 ease-in-out text-heading text-base focus:outline-none focus:ring-0 border border-border-base focus:border-accent h-10"}  %>
+    </div>
+    
+    <div class="flex items-center h-12 p-5 font-semibold leading-none transition duration-300 ease-in-out border border-transparent rounded outline-none max-w-fit focus:outline-none focus:shadow focus:ring-1 focus:ring-accent-700 bg-accent text-light hover:bg-accentH">
+      <%= form.submit "Add ingredient"%>
+    </div>
+  <% end %>
+</div>
