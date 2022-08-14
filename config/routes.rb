@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     root 'foods#index', as: :authenticated_root
   end
 
-  
-  root to: 'devise/registrations#new'
+  devise_scope :user do
+    root 'devise/registrations#new'
+  end
 
   resources :users
   resources :foods, only: [:index, :new, :create, :destroy]
